@@ -27,5 +27,5 @@ This project follows a professional modular C architecture:
 *   `Makefile`: Automates the compilation process.
 
 ## ⚙️ How to Compile
-
+Remark :
 *Instructions will be updated once the Makefile is fully configured.*
