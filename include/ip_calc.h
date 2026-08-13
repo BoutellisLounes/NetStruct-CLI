@@ -1,7 +1,9 @@
-#ifndef IP_CALC_H
-#define IP_CALC_H
+#ifndef ip_calc_h
+#define ip_calc_h
 
-// Cette fonction fera tes futurs calculs CCNA
-void tester_moteur_ip();
-
+// Check whatever the enterred string is a valid IPv4 adress or no ( ex : 111.55.87.255)
+// Return 1 if it is valid, 0 else
+int is_ip_adress_valid(const char *IP);
+// Interactive procedure to enter an IP adress and analyse it 
+void calc_ip_adress(void);
 #endif
