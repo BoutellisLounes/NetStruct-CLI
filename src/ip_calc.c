@@ -21,3 +21,25 @@ int is_ip_adress_valid(const char *IP){
     return 0;
     
 }
+
+#include <stdio.h>
+#include "../include/ip_calc.h"
+
+void calc_ip_adress(void) {
+    // Declare an array of 16 characters to hold the string
+    char ip_adress[16]; 
+    
+    printf("\n--- Enter an IPv4 adress: ");
+    
+    // Use %15s to prevent the user from typing more than 15 characters (Security!)
+    scanf("%15s", ip_adress); 
+    
+    printf("--- Checking whether it is valid or not ... ---\n");
+
+    // the checking logic point using the precedent logical function
+    if( is_ip_adress_valid(ip_adress) ) {
+        printf("SUCCESS : The entered IP Adress : %s is valid\n", ip_adress);
+    } else {
+        printf("\nERROR : The entered IP adress : %s is invalid\n(Example valid format : '192.168.1.1')\n", ip_adress);
+    }
+}
