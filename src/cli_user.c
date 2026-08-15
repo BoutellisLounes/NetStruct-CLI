@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "../include/cli_user.h"
+#include "../include/ip_calc.h"
 
 void display_menu(void) {
     int answer;
@@ -9,7 +10,7 @@ void display_menu(void) {
 
         switch (answer){
             case 1:
-                printf("Networking Logic coming soon...");
+                is_ip_adress_valid();
                 break;
             case 2:
                 printf("Goodbye!");
@@ -18,6 +19,6 @@ void display_menu(void) {
                 printf("Error : Invalid choice !");
                 break;
         }
-    } while ((answer != 1) && (answer != 2);
+    } while ((answer != 1) && (answer != 2));
 }
 
