@@ -10,7 +10,7 @@ void display_menu(void) {
 
         switch (answer){
             case 1:
-                is_ip_adress_valid();
+                calc_ip_adress();
                 break;
             case 2:
                 printf("Goodbye!");
@@ -19,6 +19,6 @@ void display_menu(void) {
                 printf("Error : Invalid choice !");
                 break;
         }
-    } while ((answer != 1) && (answer != 2));
+    } while (answer != 2);
 }
 
