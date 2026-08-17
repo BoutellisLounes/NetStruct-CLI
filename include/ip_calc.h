@@ -6,4 +6,6 @@
 int is_ip_adress_valid(const char *IP);
 // Interactive procedure to enter an IP adress and analyse it 
 void calc_ip_adress(void);
+// A function that takes the CIDR prefix as an integer and prints the subnet mask.
+void print_subnet_mask(int CIDR);
 #endif
