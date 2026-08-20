@@ -16,7 +16,7 @@ int is_ip_adress_valid(const char *IP) {
     return 0;
 }
 
-void print_subnet_mask(int cidr) {
+void print_network_info(int cidr, char const *IP) {
     unsigned int mask;
 
     // Handle edge case to prevent C from crashing on a 32-bit shift
@@ -33,6 +33,21 @@ void print_subnet_mask(int cidr) {
     int d = mask & 0xFF;
 
     printf("The Subnet Mask is : %d.%d.%d.%d\n", x, y, z, d);
+    
+    int ip1,ip2,ip3,ip4;
+
+    // Extract the 4 Bytes of the enterred IPv4 adress
+    sscanf(IP, "%d.%d.%d.%d", &ip1, &ip2, &ip3, &ip4);
+     
+    // Calculate the Network adress with the Bitwise AND (&)
+    // Compare each IP adress byte with its correspondant byte of the mask adress
+
+    int network1 = x & ip1;
+    int network2 = y & ip2;
+    int network3 = z & ip3;
+    int network4 = d & ip4;
+
+    printf("The network adress is : %d.%d.%d.%d\n", network1, network2, network3, network4);
 }
 
 void calc_ip_adress(void) {
@@ -52,7 +67,7 @@ void calc_ip_adress(void) {
         if (cidr < 0 || cidr > 32) {
             printf("[ERROR] The entered slash number is invalid!\n");
         } else {
-            print_subnet_mask(cidr);
+            print_network_info(cidr, ip_adress);
         }
 
     } else {
