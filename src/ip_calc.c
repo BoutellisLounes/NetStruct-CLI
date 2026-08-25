@@ -48,6 +48,13 @@ void print_network_info(int cidr, char const *IP) {
     int network4 = d & ip4;
 
     printf("The network adress is : %d.%d.%d.%d\n", network1, network2, network3, network4);
+
+    int Broadcast_1 = ip1 | (~x & 0xFF);
+    int Broadcast_2 = ip2 | (~y & 0xFF);
+    int Broadcast_3 = ip3 | (~z & 0XFF);
+    int Broadcast_4 = ip4 | (~d & 0xFF);
+
+    printf("The broadcast adress is : %d.%d.%d.%d\n", Broadcast_1,Broadcast_2,Broadcast_3,Broadcast_4);
 }
 
 void calc_ip_adress(void) {
