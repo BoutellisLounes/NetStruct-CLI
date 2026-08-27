@@ -55,6 +55,14 @@ void print_network_info(int cidr, char const *IP) {
     int Broadcast_4 = ip4 | (~d & 0xFF);
 
     printf("The broadcast adress is : %d.%d.%d.%d\n", Broadcast_1,Broadcast_2,Broadcast_3,Broadcast_4);
+
+    int host_bits = 32 - cidr;
+    int usable_hosts = (1 << host_bits) -2;
+    if(usable_hosts < 0) usable_hosts = 0; // Quick safety check
+
+    printf("The number of usable hosts is :%d\n", usable_hosts);
+
+    printf("Usable IP range : %d.%d.%d.%d - %d.%d.%d.%d\n ", network1, network2, network3, network4 + 1, Broadcast_1, Broadcast_2, Broadcast_3, Broadcast_4 - 1);
 }
 
 void calc_ip_adress(void) {
