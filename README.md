@@ -1,31 +1,41 @@
-# 🌐 NetStruct-CLI: Network Subnetting & Topology Tool
+# NetStruct-CLI 🌐
 
-![Language](https://img.shields.io/badge/Language-C-blue.svg)
-![Build](https://img.shields.io/badge/Build-Makefile-orange.svg)
-![Status](https://img.shields.io/badge/Status-In_Development-yellow.svg)
+A lightweight, fast, and robust Command-Line Interface (CLI) tool written in C for IPv4 subnetting and network calculations. 
 
-## 📌 About The Project
+Built to simulate how enterprise routers process IP addresses at the binary level, this tool avoids heavy math libraries in favor of highly optimized bitwise operations.
 
-**NetStruct-CLI** is a command-line interface tool written entirely in C. Developed during my 1st year of Computer Science Engineering, it acts as a bridge between low-level programming (memory management, bitwise operations) and networking theory (Cisco CCNA concepts).
+## 🚀 Features
 
-The goal of this tool is to automate IP addressing calculations, subnetting, and eventually simulate basic network topologies using dynamic data structures.
+*   **Strict IPv4 Validation:** Parses and validates user input, preventing buffer overflows or invalid IP formats.
+*   **Subnet Mask Generation:** Dynamically calculates masks from CIDR notation using bit-shifting (`<<`).
+*   **Network Address Routing:** Uses Bitwise AND (`&`) to isolate the network portion of the IP.
+*   **Broadcast Address Calculation:** Combines the binary inverter (`~`) and Bitwise OR (`|`) to find the subnet's broadcast address.
+*   **Host Capacity:** Computes total usable hosts per subnet.
 
-## 🚀 Features (Roadmap)
+## 🛠️ Technical Stack
 
-Currently in development, the tool aims to support the following features:
-- [ ] **IPv4 Parser:** Convert standard IP strings (e.g., `192.168.1.1`) into 32-bit integers.
-- [ ] **Subnet Calculator:** Calculate Network Address, Broadcast Address, and valid host ranges based on a CIDR mask (e.g., `/24`).
-- [ ] **VLSM Support:** (Variable Length Subnet Masking) logic for efficient IP distribution.
-- [ ] **CLI Menus:** A clean, interactive terminal interface for the user.
+*   **Language:** C (Standard library only)
+*   **Compiler:** GCC
+*   **Build Automation:** Make / Bash Shell scripting
+*   **Environment:** Cross-platform (Windows/Linux/macOS)
 
-## 🗂️ Project Architecture
+## ⚙️ Build & Run
 
-This project follows a professional modular C architecture:
-*   `src/`: Contains the actual source code (`.c` files) separated by logic (IP calculations, CLI menus).
-*   `include/`: Contains the header files (`.h`) exposing the functions to other modules.
-*   `build/`: Used for compiled object files.
-*   `Makefile`: Automates the compilation process.
+Clone the repository and compile the project using the provided build tools.
 
-## ⚙️ How to Compile
-Remark :
-*Instructions will be updated once the Makefile is fully configured.*
+**Option 1: Using Make (Standard)**
+```bash
+make
+./netstruct.exe
+```
+**Option 2: Using the Bash Fallback Script**
+```bash
+./build.sh
+./netstruct.exe
+```
+
+## What I Learned
+This project was built to master low-level memory management and binary operations in C:
+* **Bitwise Operations:** Real-world application of `&`, `|`, `~`, and `<<` for subnet masking.
+* **Input Buffer Management:** Handling `stdin` correctly with `sscanf` and clearing leftover characters to prevent infinite loops.
+* **Build Systems:** Writing a `Makefile` to automate the `GCC` compilation pipeline.
