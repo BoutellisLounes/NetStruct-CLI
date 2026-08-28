@@ -14,5 +14,4 @@ $(TARGET): $(SRCS)
 
 # Clean command to remove the compiled executable
 clean:
-
 	rm -f $(TARGET) $(TARGET).exe
